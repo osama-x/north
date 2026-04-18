@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import TripPlanner from './components/TripPlanner';
+import Itinerary from './components/Itinerary';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/planner" element={<TripPlanner />} />
+          <Route path="/itinerary" element={<Itinerary />} />
         </Routes>
       </main>
     </BrowserRouter>

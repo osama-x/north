@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import AgenticLoader from './AgenticLoader';
 
 const TripPlanner = () => {
+  const navigate = useNavigate();
+  const [isPlanning, setIsPlanning] = useState(false);
   const [formData, setFormData] = useState({
     originCity: '',
     destinationCity: '',
@@ -47,8 +50,19 @@ const TripPlanner = () => {
   };
 
   const handleNextClick = () => {
+    setIsPlanning(true);
     console.log('Trip Logistics JSON:', JSON.stringify(formData, null, 2));
   };
+
+  if (isPlanning) {
+    return (
+      <AgenticLoader 
+        source={formData.originCity} 
+        destination={formData.destinationCity} 
+        onComplete={() => navigate('/itinerary', { state: formData })} 
+      />
+    );
+  }
 
   const inputStyle = {
     padding: '0.75rem 1rem',
