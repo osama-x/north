@@ -88,7 +88,7 @@ const TripPlanner = () => {
   };
 
   return (
-    <div style={{ padding: '0 2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 'calc(100vh - 80px)', backgroundColor: '#fafbfc' }}>
+    <div style={{ padding: '0 2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 'calc(100vh - 80px)', backgroundColor: 'transparent' }}>
       
       <div className="animate-scale-up" style={{ 
           backgroundColor: '#ffffff',

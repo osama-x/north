@@ -1,18 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import scene from '../assets/scene.png';
 
 const Hero = () => {
   const navigate = useNavigate();
 
   return (
     <section style={styles.hero}>
-      <div className="cloud-container">
-        <div className="cloud cloud-1"></div>
-        <div className="cloud cloud-2"></div>
-        <div className="cloud cloud-3"></div>
-        <div className="cloud cloud-4"></div>
-      </div>
       <div style={styles.content}>
         <div style={styles.badge} className="animate-slide-down delay-100">
           <span style={styles.badgeNew}>AI Powered</span>
@@ -24,14 +17,14 @@ const Hero = () => {
         </h1>
 
         <div style={styles.buttonGroup} className="animate-slide-up delay-300">
-          <button 
+          <button
             className="btn-primary-hover"
-            style={styles.primaryButton} 
+            style={styles.primaryButton}
             onClick={() => navigate('/planner')}
           >
             Start Planning
           </button>
-          <button 
+          <button
             className="btn-secondary-hover"
             style={styles.secondaryButton}
           >
@@ -39,8 +32,6 @@ const Hero = () => {
           </button>
         </div>
       </div>
-
-      <img src={scene} alt="Mountain Panorama" style={styles.sceneImage} className="animate-scale-up delay-400" />
     </section>
   );
 };
@@ -134,17 +125,6 @@ const styles = {
     boxShadow: '0 4px 15px rgba(0,0,0,0.05)',
     transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
     cursor: 'pointer',
-  },
-  sceneImage: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    width: '100%',
-    height: 'auto',
-    display: 'block',
-    zIndex: 1,
-    objectFit: 'cover',
-    pointerEvents: 'none',
   }
 };
 

@@ -235,7 +235,7 @@ const Itinerary = () => {
 
 const styles = {
   pageBackground: {
-    backgroundColor: '#fafbfc',
+    backgroundColor: 'transparent',
     minHeight: '100vh',
     overflowY: 'auto',
     paddingBottom: '120px', // Ensure content doesn't hit bottom prematurely
