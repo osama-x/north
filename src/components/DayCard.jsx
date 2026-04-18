@@ -7,7 +7,7 @@ const DayCard = ({ dayData, dateStr, dayOfWeek, onStaySelect, selectedStayType, 
   const headerDateSubtext = dateStr && dayOfWeek ? `${dateStr}, ${dayOfWeek}` : '';
 
   return (
-    <div style={styles.cardContainer} className={className}>
+    <div style={styles.cardContainer} className={`glass-card ${className || ''}`}>
       {/* Header */}
       <div 
         style={styles.header} 
@@ -112,12 +112,9 @@ const DayCard = ({ dayData, dateStr, dayOfWeek, onStaySelect, selectedStayType, 
 
 const styles = {
   cardContainer: {
-    backgroundColor: '#ffffff',
     borderRadius: '16px',
-    border: '1px solid var(--border-light)',
     padding: '2rem',
     marginBottom: '1.5rem',
-    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)',
   },
   header: {
     display: 'flex',

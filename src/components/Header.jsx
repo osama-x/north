@@ -4,7 +4,7 @@ import logo from '../assets/logo.png';
 
 const Header = () => {
   return (
-    <header style={styles.header}>
+    <header style={styles.header} className="glass-header">
       <Link to="/" style={styles.logoLink} className="animate-slide-down delay-100">
         <img src={logo} alt="Northway.pk" style={styles.logoImage} />
       </Link>

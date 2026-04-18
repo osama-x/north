@@ -168,33 +168,33 @@ const Itinerary = () => {
         </div>
 
         {/* Trip Overview Cards */}
-        <div className="animate-scale-up delay-200" style={styles.overviewSection}>
+        <div className="animate-scale-up delay-200 glass-card" style={styles.overviewSection}>
            <h2 style={styles.sectionTitle}>Trip Overview</h2>
            <p style={styles.sectionSubtitle}>Total Distance: ~1,300 km (Round trip)</p>
            
            <div style={styles.overviewGrid}>
-             <div style={styles.overviewCard}>
+             <div className="glass-card" style={styles.overviewCard}>
                 <div style={{color: '#10B981', marginBottom: '0.75rem'}}>
                   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><path d="M9 17h6"></path><circle cx="17" cy="17" r="2"></circle></svg>
                 </div>
                 <div style={styles.overviewCardLabel}>Fuel</div>
                 <div style={styles.overviewCardValue}>Rs35k – Rs45k</div>
              </div>
-             <div style={styles.overviewCard}>
+             <div className="glass-card" style={styles.overviewCard}>
                 <div style={{color: '#F59E0B', marginBottom: '0.75rem'}}>
                   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path></svg>
                 </div>
                 <div style={styles.overviewCardLabel}>Food</div>
                 <div style={styles.overviewCardValue}>Rs25k – Rs35k</div>
              </div>
-             <div style={styles.overviewCard}>
+             <div className="glass-card" style={styles.overviewCard}>
                 <div style={{color: '#10B981', marginBottom: '0.75rem'}}>
                   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"></path></svg>
                 </div>
                 <div style={styles.overviewCardLabel}>Jeep Hires</div>
                 <div style={styles.overviewCardValue}>Rs15k – Rs20k</div>
              </div>
-             <div style={styles.overviewCard}>
+             <div className="glass-card" style={styles.overviewCard}>
                 <div style={{color: '#F59E0B', marginBottom: '0.75rem'}}>
                   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><path d="M12 18V6"></path></svg>
                 </div>
@@ -263,12 +263,9 @@ const styles = {
     fontWeight: '500',
   },
   overviewSection: {
-    backgroundColor: '#ffffff',
     borderRadius: '16px',
-    border: '1px solid var(--border-light)',
     padding: '2rem',
     marginBottom: '3rem',
-    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)',
   },
   sectionTitle: {
     fontSize: '1.25rem',
@@ -288,7 +285,6 @@ const styles = {
     gap: '1rem',
   },
   overviewCard: {
-    backgroundColor: 'var(--bg-light-gray)',
     borderRadius: '12px',
     padding: '1.25rem',
     display: 'flex',

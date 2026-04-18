@@ -90,11 +90,8 @@ const TripPlanner = () => {
   return (
     <div style={{ padding: '0 2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 'calc(100vh - 80px)', backgroundColor: 'transparent' }}>
       
-      <div className="animate-scale-up" style={{ 
-          backgroundColor: '#ffffff',
+      <div className="animate-scale-up glass-card" style={{ 
           borderRadius: '24px',
-          boxShadow: '0 20px 50px -12px rgba(15, 23, 42, 0.08)',
-          border: '1px solid var(--border-light)',
           padding: '2.5rem',
           width: '100%',
           maxWidth: '1000px',

@@ -29,7 +29,7 @@ const AgenticLoader = ({ source, destination, onComplete }) => {
 
   return (
     <div style={styles.overlay}>
-      <div style={styles.container} className="animate-scale-up">
+      <div style={styles.container} className="animate-scale-up glass-card">
         {/* Pulsing AI Icon */}
         <div style={styles.iconWrapper}>
           <div style={styles.pulseInner}></div>
@@ -112,11 +112,7 @@ const styles = {
     maxWidth: '550px',
     width: '90%',
     padding: '3rem 2rem',
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-    backdropFilter: 'blur(20px)',
     borderRadius: '24px',
-    border: '1px solid var(--border-light)',
-    boxShadow: '0 25px 50px -12px rgba(15, 23, 42, 0.15)',
   },
   iconWrapper: {
     position: 'relative',

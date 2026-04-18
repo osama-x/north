@@ -3,10 +3,12 @@
 :root {
   --bg-color: #ffffff;
   --bg-gradient: radial-gradient(circle at top left, #f1f5f9 0%, #ffffff 50%, #f8fafc 100%);
-  --text-primary: #020617; /* Deeper slate */
+  --text-primary: #020617;
+  /* Deeper slate */
   --text-secondary: #334155;
   --text-tertiary: #64748b;
-  --accent-teal: #059669; /* Slightly more vibrant emerald */
+  --accent-teal: #059669;
+  /* Slightly more vibrant emerald */
   --accent-teal-hover: #047857;
   --accent-dark: #0f172a;
   --accent-dark-hover: #1e293b;
@@ -24,8 +26,10 @@
 
 body {
   font-family: var(--font-family);
-  background: var(--bg-gradient);
-  background-attachment: fixed;
+  background: var(--bg-gradient) url('./assets/scene.png') no-repeat center bottom fixed;
+  background-size: cover;
+  color: var(--text-primary);
+  /* Force non-scrolling single page */
   color: var(--text-primary);
   /* Force non-scrolling single page */
   overflow: hidden;
@@ -86,55 +90,134 @@ button {
 
 .card-hover:hover {
   transform: translateY(-5px);
-  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15) !important;
-  border-color: var(--accent-teal) !important;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15), 0 0 0 1px var(--accent-teal) !important;
+}
+
+/* Glassmorphism Utilities */
+.glass-card {
+  background: rgba(255, 255, 255, 0.65) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1) !important;
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+}
+
+.glass-header {
+  background: rgba(255, 255, 255, 0.5) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4) !important;
 }
 
 @keyframes pulse {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.1); opacity: 0.8; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* --- Premium Animations --- */
 @keyframes slideUpFadeIn {
-  0% { opacity: 0; transform: translateY(40px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes slideDownFadeIn {
-  0% { opacity: 0; transform: translateY(-30px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes scaleUpFadeIn {
-  0% { opacity: 0; transform: scale(0.95); }
-  100% { opacity: 1; transform: scale(1); }
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes slideInFromRight {
-  0% { opacity: 0; transform: translateX(40px); }
-  100% { opacity: 1; transform: translateX(0); }
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes slideInFromLeft {
-  0% { opacity: 0; transform: translateX(-40px); }
-  100% { opacity: 1; transform: translateX(0); }
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .animate-slide-up {
   animation: slideUpFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  opacity: 0; 
+  opacity: 0;
 }
 
 .animate-slide-down {
@@ -158,16 +241,45 @@ button {
 }
 
 /* Stagger Effects */
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
-.delay-400 { animation-delay: 400ms; }
-.delay-500 { animation-delay: 500ms; }
-.delay-600 { animation-delay: 600ms; }
-.delay-700 { animation-delay: 700ms; }
-.delay-800 { animation-delay: 800ms; }
-.delay-900 { animation-delay: 900ms; }
-.delay-1000 { animation-delay: 1000ms; }
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-400 {
+  animation-delay: 400ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+.delay-600 {
+  animation-delay: 600ms;
+}
+
+.delay-700 {
+  animation-delay: 700ms;
+}
+
+.delay-800 {
+  animation-delay: 800ms;
+}
+
+.delay-900 {
+  animation-delay: 900ms;
+}
+
+.delay-1000 {
+  animation-delay: 1000ms;
+}
 
 /* --- Cloud Animations --- */
 .cloud-container {
@@ -190,7 +302,8 @@ button {
   animation: drift linear infinite;
 }
 
-.cloud::before, .cloud::after {
+.cloud::before,
+.cloud::after {
   content: '';
   position: absolute;
   background: white;
@@ -198,13 +311,25 @@ button {
 }
 
 @keyframes drift {
-  from { transform: translateX(-200px); }
-  to { transform: translateX(calc(100vw + 200px)); }
+  from {
+    transform: translateX(-200px);
+  }
+
+  to {
+    transform: translateX(calc(100vw + 200px));
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 .cloud-1 {
