@@ -30,22 +30,22 @@ const ItineraryFooter = ({ costs, isAtBottom }) => {
               </div>
               
               <div style={styles.grid}>
-                <div style={styles.costCard}>
+                <div className="card-hover" style={styles.costCard}>
                    <div style={styles.iconBoxTop}>{icons.hotel}</div>
                    <div style={styles.costLabelCard}>Accommodation</div>
                    <div style={styles.costValueCard}>Rs{costs.accommodation.toLocaleString()}</div>
                 </div>
-                <div style={styles.costCard}>
+                <div className="card-hover" style={styles.costCard}>
                    <div style={styles.iconBoxTop}>{icons.car}</div>
                    <div style={styles.costLabelCard}>Fuel & Tolls</div>
                    <div style={styles.costValueCard}>Rs{costs.fuelTolls.toLocaleString()}</div>
                 </div>
-                <div style={styles.costCard}>
+                <div className="card-hover" style={styles.costCard}>
                    <div style={styles.iconBoxTop}>{icons.food}</div>
                    <div style={styles.costLabelCard}>Food & Misc</div>
                    <div style={styles.costValueCard}>Rs{costs.foodMisc.toLocaleString()}</div>
                 </div>
-                <div style={styles.costCard}>
+                <div className="card-hover" style={styles.costCard}>
                    <div style={styles.iconBoxTop}>{icons.mountain}</div>
                    <div style={styles.costLabelCard}>Jeep & Activities</div>
                    <div style={styles.costValueCard}>Rs{costs.jeepActivities.toLocaleString()}</div>
@@ -59,7 +59,7 @@ const ItineraryFooter = ({ costs, isAtBottom }) => {
                 <div style={styles.expandedTotalValue}>Rs{costs.total.toLocaleString()}</div>
               </div>
 
-              <button onClick={() => setManualToggle(false)} style={styles.toggleBtnAbsolute}>
+              <button onClick={() => setManualToggle(false)} className="btn-secondary-hover" style={styles.toggleBtnAbsolute}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </button>
             </div>
@@ -101,7 +101,7 @@ const ItineraryFooter = ({ costs, isAtBottom }) => {
                    <div style={styles.totalLabel}>Total</div>
                    <div style={styles.totalValue}>Rs{costs.total.toLocaleString()}</div>
                 </div>
-                <button onClick={() => setManualToggle(true)} style={styles.toggleBtn}>
+                <button onClick={() => setManualToggle(true)} className="btn-secondary-hover" style={styles.toggleBtn}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
                 </button>
               </div>

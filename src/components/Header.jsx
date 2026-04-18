@@ -10,13 +10,13 @@ const Header = () => {
       </Link>
 
       <nav style={styles.nav}>
-        <Link to="/planner" style={styles.navLink}>AI Trip Planner</Link>
-        <Link to="/" style={styles.navLink}>Updates & Alerts</Link>
-        <Link to="/" style={styles.navLink}>Road Status</Link>
+        <Link to="/planner" className="nav-link-hover" style={styles.navLink}>AI Trip Planner</Link>
+        <Link to="/" className="nav-link-hover" style={styles.navLink}>Updates & Alerts</Link>
+        <Link to="/" className="nav-link-hover" style={styles.navLink}>Road Status</Link>
       </nav>
 
       <div style={styles.actions}>
-        <button style={styles.loginButton}>Login</button>
+        <button className="btn-secondary-hover" style={styles.loginButton}>Login</button>
       </div>
     </header>
   );

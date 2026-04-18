@@ -18,13 +18,15 @@ const Hero = () => {
         </h1>
 
         <div style={styles.buttonGroup}>
-          <button
-            style={styles.primaryButton}
+          <button 
+            className="btn-primary-hover"
+            style={styles.primaryButton} 
             onClick={() => navigate('/planner')}
           >
             Start Planning
           </button>
-          <button
+          <button 
+            className="btn-secondary-hover"
             style={styles.secondaryButton}
           >
             Check Road Status

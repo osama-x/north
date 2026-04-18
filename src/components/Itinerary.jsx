@@ -216,6 +216,7 @@ const Itinerary = () => {
                 dayOfWeek={dateInfo.dayOfWeek}
                 onStaySelect={handleStaySelect}
                 selectedStayType={selectedStays[day.id]?.type}
+                className="card-hover"
               />
             );
           })}

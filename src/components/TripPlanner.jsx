@@ -107,7 +107,7 @@ const TripPlanner = () => {
         {/* Header */}
         <div style={{ gridColumn: 'span 12', marginBottom: '0.5rem', borderBottom: '1px solid var(--border-light)', paddingBottom: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
           <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
-            <Link to="/" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '40px', height: '40px', borderRadius: '12px', border: '1px solid var(--border-light)', color: 'var(--text-secondary)', transition: 'all 0.2s', marginTop: '0.25rem' }}>
+            <Link to="/" className="btn-secondary-hover" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '40px', height: '40px', borderRadius: '12px', border: '1px solid var(--border-light)', color: 'var(--text-secondary)', transition: 'all 0.2s', marginTop: '0.25rem', backgroundColor: '#fff' }}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="19" y1="12" x2="5" y2="12"></line>
                 <polyline points="12 19 5 12 12 5"></polyline>
@@ -225,9 +225,9 @@ const TripPlanner = () => {
                    <div style={{ fontSize: '0.7rem', color: 'var(--text-tertiary)', fontWeight: '500' }}>{desc}</div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', backgroundColor: 'var(--bg-light-gray)', padding: '4px 6px', borderRadius: '8px' }}>
-                  <button onClick={() => handleTravelerChange(type, false)} style={{ width: '24px', height: '24px', borderRadius: '4px', border: '1px solid var(--border-light)', backgroundColor: '#fff', fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>-</button>
+                  <button className="btn-secondary-hover" onClick={() => handleTravelerChange(type, false)} style={{ width: '24px', height: '24px', borderRadius: '4px', border: '1px solid var(--border-light)', backgroundColor: '#fff', fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>-</button>
                   <span style={{ fontWeight: '700', fontSize: '0.9rem', width: '16px', textAlign: 'center' }}>{formData.travelers[type]}</span>
-                  <button onClick={() => handleTravelerChange(type, true)} style={{ width: '24px', height: '24px', borderRadius: '4px', border: '1px solid var(--border-light)', backgroundColor: '#fff', fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>+</button>
+                  <button className="btn-secondary-hover" onClick={() => handleTravelerChange(type, true)} style={{ width: '24px', height: '24px', borderRadius: '4px', border: '1px solid var(--border-light)', backgroundColor: '#fff', fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>+</button>
                 </div>
               </div>
             </div>
@@ -244,6 +244,7 @@ const TripPlanner = () => {
                 <button
                   key={opt.id}
                   onClick={() => setFormData(prev => ({ ...prev, modeOfTransport: opt.id }))}
+                  className="card-hover"
                   style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -276,6 +277,7 @@ const TripPlanner = () => {
         <div style={{ gridColumn: 'span 12', display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
           <button 
             onClick={handleNextClick} 
+            className="btn-primary-hover"
             style={{ 
               backgroundColor: 'var(--accent-dark)', 
               color: '#fff', 
@@ -283,13 +285,11 @@ const TripPlanner = () => {
               borderRadius: '16px', 
               fontSize: '1.1rem', 
               fontWeight: '700', 
-              transition: 'all 0.2s', 
+              transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)', 
               boxShadow: '0 15px 30px -10px rgba(15, 23, 42, 0.3)',
               border: 'none',
               cursor: 'pointer'
             }}
-            onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'var(--accent-teal)'}
-            onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'var(--accent-dark)'}
           >
             Continue to Itinerary
           </button>

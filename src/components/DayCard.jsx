@@ -86,6 +86,7 @@ const DayCard = ({ dayData, dateStr, dayOfWeek, onStaySelect, selectedStayType }
                      <div 
                        key={idx} 
                        onClick={() => onStaySelect(dayData.id, stay.type, stay.price)}
+                       className="card-hover"
                        style={{
                          ...styles.stayCard,
                          borderColor: isSelected ? 'var(--accent-teal)' : 'var(--border-light)',

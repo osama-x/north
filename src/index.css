@@ -45,11 +45,11 @@ body {
 a {
   text-decoration: none;
   color: inherit;
-  transition: color 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-ul {
-  list-style: none;
+a:hover {
+  color: var(--accent-teal);
 }
 
 button {
@@ -57,6 +57,37 @@ button {
   cursor: pointer;
   border: none;
   outline: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Global Hover Utilities */
+.btn-primary-hover:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+  box-shadow: 0 15px 30px -10px rgba(16, 185, 129, 0.5);
+}
+
+.btn-secondary-hover:hover {
+  transform: translateY(-2px);
+  background-color: #fff !important;
+  border-color: var(--accent-teal) !important;
+  color: var(--accent-teal) !important;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link-hover:hover {
+  color: var(--accent-teal);
+  transform: translateY(-1px);
+}
+
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15) !important;
+  border-color: var(--accent-teal) !important;
 }
 
 @keyframes pulse {
