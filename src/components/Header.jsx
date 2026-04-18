@@ -1,14 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 const Header = () => {
   return (
     <header style={styles.header}>
       <Link to="/" style={styles.logoLink}>
-        <div style={styles.logoContainer}>
-          <div style={styles.logoIcon}>N</div>
-          <span style={styles.logoText}>Northway.pk</span>
-        </div>
+        <img src={logo} alt="Northway.pk" style={styles.logoImage} />
       </Link>
 
       <nav style={styles.nav}>
@@ -40,29 +38,11 @@ const styles = {
      textDecoration: 'none',
      color: 'inherit',
   },
-  logoContainer: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '0.75rem',
-    cursor: 'pointer',
-  },
-  logoIcon: {
-    width: '32px',
-    height: '32px',
-    backgroundColor: 'var(--accent-teal)',
-    color: '#fff',
-    borderRadius: '8px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontWeight: '800',
-    fontSize: '1.25rem',
-  },
-  logoText: {
-    fontSize: '1.5rem',
-    fontWeight: '700',
-    letterSpacing: '-0.03em',
-    color: 'var(--text-primary)',
+  logoImage: {
+    height: '45px',
+    width: 'auto',
+    display: 'block',
+    transition: 'opacity 0.2s',
   },
   nav: {
     display: 'flex',

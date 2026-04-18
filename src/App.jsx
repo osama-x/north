@@ -27,7 +27,9 @@ const styles = {
     flexDirection: 'column',
     // Ensures the main content doesn't force a global scroll, 
     // allowing internal components to handle their own sizing
-    overflow: 'hidden', 
+    overflow: 'hidden',
+    backgroundColor: 'var(--bg-color)',
+
   }
 };
 

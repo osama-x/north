@@ -2,15 +2,17 @@
 
 :root {
   --bg-color: #ffffff;
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-tertiary: #94a3b8;
-  --accent-teal: #10b981;
-  --accent-teal-hover: #059669;
-  --accent-dark: #1e293b;
-  --accent-dark-hover: #0f172a;
-  --border-light: #e2e8f0;
+  --bg-gradient: radial-gradient(circle at top left, #f1f5f9 0%, #ffffff 50%, #f8fafc 100%);
+  --text-primary: #020617; /* Deeper slate */
+  --text-secondary: #334155;
+  --text-tertiary: #64748b;
+  --accent-teal: #059669; /* Slightly more vibrant emerald */
+  --accent-teal-hover: #047857;
+  --accent-dark: #0f172a;
+  --accent-dark-hover: #1e293b;
+  --border-light: rgba(226, 232, 240, 0.8);
   --bg-light-gray: #f8fafc;
+  --panel-shadow: 0 20px 50px -12px rgba(15, 23, 42, 0.1);
   --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -22,7 +24,8 @@
 
 body {
   font-family: var(--font-family);
-  background-color: var(--bg-color);
+  background: var(--bg-gradient);
+  background-attachment: fixed;
   color: var(--text-primary);
   /* Force non-scrolling single page */
   overflow: hidden;
