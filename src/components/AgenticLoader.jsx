@@ -29,7 +29,7 @@ const AgenticLoader = ({ source, destination, onComplete }) => {
 
   return (
     <div style={styles.overlay}>
-      <div style={styles.container}>
+      <div style={styles.container} className="animate-scale-up">
         {/* Pulsing AI Icon */}
         <div style={styles.iconWrapper}>
           <div style={styles.pulseInner}></div>

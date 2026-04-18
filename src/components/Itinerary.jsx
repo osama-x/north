@@ -158,7 +158,7 @@ const Itinerary = () => {
       <div style={styles.container}>
         
         {/* Header Section */}
-        <div style={styles.headerArea}>
+        <div className="animate-slide-down delay-100" style={styles.headerArea}>
            <div style={styles.titleContainer}>
              <h1 style={styles.titleText}>{formData.originCity} <span style={{color: 'var(--text-tertiary)', margin:'0 4px'}}>→</span> {formData.destinationCity}</h1>
              <div style={styles.subtitleText}>
@@ -168,7 +168,7 @@ const Itinerary = () => {
         </div>
 
         {/* Trip Overview Cards */}
-        <div style={styles.overviewSection}>
+        <div className="animate-scale-up delay-200" style={styles.overviewSection}>
            <h2 style={styles.sectionTitle}>Trip Overview</h2>
            <p style={styles.sectionSubtitle}>Total Distance: ~1,300 km (Round trip)</p>
            
@@ -208,6 +208,7 @@ const Itinerary = () => {
         <div style={styles.daysList}>
           {itineraryData.map((day, index) => {
             const dateInfo = getDayDateInfo(index);
+            const delayClass = `delay-${Math.min((index + 3) * 100, 1000)}`;
             return (
               <DayCard 
                 key={day.id} 
@@ -216,7 +217,7 @@ const Itinerary = () => {
                 dayOfWeek={dateInfo.dayOfWeek}
                 onStaySelect={handleStaySelect}
                 selectedStayType={selectedStays[day.id]?.type}
-                className="card-hover"
+                className={`card-hover animate-slide-up ${delayClass}`}
               />
             );
           })}

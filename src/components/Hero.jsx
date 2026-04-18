@@ -7,17 +7,23 @@ const Hero = () => {
 
   return (
     <section style={styles.hero}>
+      <div className="cloud-container">
+        <div className="cloud cloud-1"></div>
+        <div className="cloud cloud-2"></div>
+        <div className="cloud cloud-3"></div>
+        <div className="cloud cloud-4"></div>
+      </div>
       <div style={styles.content}>
-        <div style={styles.badge}>
+        <div style={styles.badge} className="animate-slide-down delay-100">
           <span style={styles.badgeNew}>AI Powered</span>
           <span style={styles.badgeText}>Discovering the Magnificent North of Pakistan</span>
         </div>
 
-        <h1 style={styles.title}>
+        <h1 style={styles.title} className="animate-slide-up delay-200">
           <span style={styles.accentText}>Effortlessly</span> plan your perfect northern getaway
         </h1>
 
-        <div style={styles.buttonGroup}>
+        <div style={styles.buttonGroup} className="animate-slide-up delay-300">
           <button 
             className="btn-primary-hover"
             style={styles.primaryButton} 
@@ -34,7 +40,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <img src={scene} alt="Mountain Panorama" style={styles.sceneImage} />
+      <img src={scene} alt="Mountain Panorama" style={styles.sceneImage} className="animate-scale-up delay-400" />
     </section>
   );
 };

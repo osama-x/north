@@ -5,17 +5,17 @@ import logo from '../assets/logo.png';
 const Header = () => {
   return (
     <header style={styles.header}>
-      <Link to="/" style={styles.logoLink}>
+      <Link to="/" style={styles.logoLink} className="animate-slide-down delay-100">
         <img src={logo} alt="Northway.pk" style={styles.logoImage} />
       </Link>
 
-      <nav style={styles.nav}>
+      <nav style={styles.nav} className="animate-slide-down delay-200">
         <Link to="/planner" className="nav-link-hover" style={styles.navLink}>AI Trip Planner</Link>
         <Link to="/" className="nav-link-hover" style={styles.navLink}>Updates & Alerts</Link>
         <Link to="/" className="nav-link-hover" style={styles.navLink}>Road Status</Link>
       </nav>
 
-      <div style={styles.actions}>
+      <div style={styles.actions} className="animate-slide-down delay-300">
         <button className="btn-secondary-hover" style={styles.loginButton}>Login</button>
       </div>
     </header>

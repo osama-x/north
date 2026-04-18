@@ -90,7 +90,7 @@ const TripPlanner = () => {
   return (
     <div style={{ padding: '0 2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 'calc(100vh - 80px)', backgroundColor: '#fafbfc' }}>
       
-      <div style={{ 
+      <div className="animate-scale-up" style={{ 
           backgroundColor: '#ffffff',
           borderRadius: '24px',
           boxShadow: '0 20px 50px -12px rgba(15, 23, 42, 0.08)',
@@ -101,11 +101,11 @@ const TripPlanner = () => {
           display: 'grid',
           gridTemplateColumns: 'repeat(12, 1fr)',
           gap: '2.5rem',
-          transform: 'translateY(-5%)'
+          marginTop: '-5vh'
         }}>
         
         {/* Header */}
-        <div style={{ gridColumn: 'span 12', marginBottom: '0.5rem', borderBottom: '1px solid var(--border-light)', paddingBottom: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+        <div className="animate-slide-down delay-100" style={{ gridColumn: 'span 12', marginBottom: '0.5rem', borderBottom: '1px solid var(--border-light)', paddingBottom: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
           <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
             <Link to="/" className="btn-secondary-hover" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '40px', height: '40px', borderRadius: '12px', border: '1px solid var(--border-light)', color: 'var(--text-secondary)', transition: 'all 0.2s', marginTop: '0.25rem', backgroundColor: '#fff' }}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -130,7 +130,7 @@ const TripPlanner = () => {
         </div>
 
         {/* Left Side: Route & Logistics */}
-        <div style={{ gridColumn: 'span 9', display: 'flex', flexDirection: 'column', gap: '2rem', borderRight: '1px solid var(--border-light)', paddingRight: '2rem' }}>
+        <div className="animate-slide-right delay-200" style={{ gridColumn: 'span 9', display: 'flex', flexDirection: 'column', gap: '2rem', borderRight: '1px solid var(--border-light)', paddingRight: '2rem' }}>
           
           {/* Row 1: Source & Destination */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
@@ -211,7 +211,7 @@ const TripPlanner = () => {
         </div>
 
         {/* Right Side: Travelers (Vertical) */}
-        <div style={{ gridColumn: 'span 3', display: 'flex', flexDirection: 'column', gap: '1.5rem', paddingLeft: '1rem' }}>
+        <div className="animate-slide-left delay-300" style={{ gridColumn: 'span 3', display: 'flex', flexDirection: 'column', gap: '1.5rem', paddingLeft: '1rem' }}>
           <label style={labelStyle}>Travelers</label>
           {[
             { type: 'adults', label: 'Adults', desc: '12+ yrs' },
@@ -274,7 +274,7 @@ const TripPlanner = () => {
         </div>
 
         {/* Footer: Action Button centered */}
-        <div style={{ gridColumn: 'span 12', display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
+        <div className="animate-slide-up delay-400" style={{ gridColumn: 'span 12', display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
           <button 
             onClick={handleNextClick} 
             className="btn-primary-hover"

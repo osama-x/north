@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
-const DayCard = ({ dayData, dateStr, dayOfWeek, onStaySelect, selectedStayType }) => {
+const DayCard = ({ dayData, dateStr, dayOfWeek, onStaySelect, selectedStayType, className }) => {
   const [isOpen, setIsOpen] = useState(true);
 
   // Format Date String
   const headerDateSubtext = dateStr && dayOfWeek ? `${dateStr}, ${dayOfWeek}` : '';
 
   return (
-    <div style={styles.cardContainer}>
+    <div style={styles.cardContainer} className={className}>
       {/* Header */}
       <div 
         style={styles.header} 
