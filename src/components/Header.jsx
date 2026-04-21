@@ -12,7 +12,7 @@ const Header = () => {
       <nav style={styles.nav} className="animate-slide-down delay-200">
         <Link to="/planner" className="nav-link-hover" style={styles.navLink}>AI Trip Planner</Link>
         <Link to="/" className="nav-link-hover" style={styles.navLink}>Updates & Alerts</Link>
-        <Link to="/" className="nav-link-hover" style={styles.navLink}>Road Status</Link>
+        <Link to="/" className="nav-link-hover" style={styles.navLink}>Stays</Link>
       </nav>
 
       <div style={styles.actions} className="animate-slide-down delay-300">
@@ -35,8 +35,8 @@ const styles = {
     position: 'relative', // Support absolute centering of nav
   },
   logoLink: {
-     textDecoration: 'none',
-     color: 'inherit',
+    textDecoration: 'none',
+    color: 'inherit',
   },
   logoImage: {
     height: '45px',
