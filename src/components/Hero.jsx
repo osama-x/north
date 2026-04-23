@@ -8,7 +8,7 @@ import kalamImg from '../assets/kalam.png';
 
 const Hero = () => {
   const navigate = useNavigate();
-  
+
   const taglines = [
     { prefix: "", accent: "Effortlessly", suffix: " plan your perfect northern getaway" },
     { prefix: "Discover the ", accent: "Majestic", suffix: " beauty of the high peaks" },
@@ -22,13 +22,13 @@ const Hero = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setFadeStatus('fade-out');
-      
+
       // Wait for fade out to complete before changing text
       setTimeout(() => {
         setIndex((prevIndex) => (prevIndex + 1) % taglines.length);
         setFadeStatus('fade-in');
       }, 500); // Duration of fade-out
-      
+
     }, 4000); // Total time each headline stays visible
 
     return () => clearInterval(timer);
@@ -56,10 +56,11 @@ const Hero = () => {
     { id: 3, name: 'Naran', tagline: 'Alpine Serenity', image: naranImg },
     { id: 4, name: 'Nathia Gali', tagline: 'Misty Mountains', image: nathiaImg },
     { id: 5, name: 'Kalam', tagline: 'Pine Whispers', image: kalamImg },
+    { id: 6, name: 'Neelum', tagline: 'Paradise on Earth', image: null },
   ];
 
   return (
-    <section style={styles.hero}>
+    <section style={styles.hero} className="hero-section">
       <div style={styles.content}>
         {/* Top Hero Section */}
         <div style={styles.topSection}>
@@ -87,11 +88,35 @@ const Hero = () => {
         {/* Popular Destinations Section */}
         <div style={styles.destinationsSection} className="animate-slide-up delay-400">
           <h2 style={styles.sectionTitleCenter}>Popular Destinations</h2>
-          <div style={styles.destinationGrid}>
+          <div style={styles.destinationGrid} className="destination-grid">
             {popularDestinations.map(dest => (
               <div key={dest.id} className="glass-card card-hover" style={styles.destCard}>
                 <div style={styles.imageContainer}>
-                  <img src={dest.image} alt={dest.name} style={styles.destImage} />
+                  {dest.image ? (
+                    <img src={dest.image} alt={dest.name} style={styles.destImage} />
+                  ) : (
+                    <div style={{
+                      ...styles.destImage,
+                      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(5, 150, 105, 0.05) 100%)',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      backdropFilter: 'blur(12px)',
+                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                    }}>
+                      <span style={{ fontSize: '3.5rem', opacity: 0.3 }}>🏔️</span>
+                      <span style={{
+                        marginTop: '1rem',
+                        fontSize: '0.75rem',
+                        fontWeight: '700',
+                        color: 'var(--accent-teal)',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.2em',
+                        opacity: 0.8
+                      }}>Coming Soon</span>
+                    </div>
+                  )}
                 </div>
                 <div style={styles.textWrapper}>
                   <h3 style={styles.destName}>{dest.name}</h3>
@@ -113,12 +138,17 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     flex: 1,
-    overflow: 'hidden', // Enforce single view, no scroll
+    overflow: 'hidden', // No scroll in default view
     position: 'relative',
     backgroundColor: 'transparent',
     width: '100%',
-    paddingTop: '2rem',
-    paddingBottom: '2rem', // Keep within screen bounds
+    // Standardizing the 80% zoom look the user preferred
+    zoom: '0.8',
+    // Fallback for browsers that don't support zoom
+    WebkitZoom: '0.8',
+    MozTransform: 'scale(0.8)',
+    MozTransformOrigin: 'top center',
+    padding: '1rem 0',
   },
   content: {
     display: 'flex',
@@ -126,27 +156,31 @@ const styles = {
     alignItems: 'center',
     zIndex: 10,
     width: '100%',
-    maxWidth: '1600px',
-    padding: '0 2rem',
+    maxWidth: '1800px',
+    padding: '0 2rem 2rem 2rem', // Removed top padding
     position: 'relative',
     height: '100%',
-    justifyContent: 'center',
+    maxHeight: '100%',
+    justifyContent: 'space-between',
+    width: '100%',
   },
   topSection: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    marginBottom: '3rem',
-    justifyContent: 'center'
+    marginTop: '1rem',
+    marginBottom: '0',
+    justifyContent: 'center',
+    width: '100%',
   },
   title: {
-    fontSize: 'clamp(3rem, 6vw, 4.5rem)',
+    fontSize: 'clamp(2.5rem, 8vw, 5.5rem)', // More aggressive clamp for responsiveness
     fontWeight: '800',
     textAlign: 'center',
     letterSpacing: '-0.04em',
-    maxWidth: '900px',
+    maxWidth: '1200px', // Wider title allowed at 80% scale
     lineHeight: '1.05',
-    marginBottom: '2rem',
+    marginBottom: '1.5rem',
     color: 'var(--text-primary)',
     textShadow: '0 2px 10px rgba(255,255,255,0.5)',
   },
@@ -156,32 +190,21 @@ const styles = {
   },
   taglineWrapper: {
     display: 'inline-block',
-    minHeight: '1.2em', // Prevent layout shift
+    minHeight: '1.2em',
   },
   buttonGroup: {
     display: 'flex',
-    gap: '1.5rem',
+    gap: '1rem',
+    marginTop: '0.5rem',
   },
   primaryButton: {
     backgroundColor: 'var(--accent-teal)',
     color: '#fff',
-    padding: '1.25rem 2.75rem',
+    padding: '1.1rem 2.5rem',
     borderRadius: '99px',
-    fontSize: '1.15rem',
+    fontSize: '1.1rem',
     fontWeight: '700',
     border: '2px solid rgba(255, 255, 255, 0.9)',
-    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-    cursor: 'pointer',
-  },
-  secondaryButton: {
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
-    color: 'var(--accent-teal)',
-    border: '2px solid var(--accent-teal)',
-    padding: '1.25rem 2.75rem',
-    borderRadius: '99px',
-    fontSize: '1.15rem',
-    fontWeight: '700',
-    boxShadow: '0 4px 15px rgba(0,0,0,0.05)',
     transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
     cursor: 'pointer',
   },
@@ -190,16 +213,17 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    marginTop: '1rem',
   },
   sectionTitleCenter: {
-    fontSize: '1.25rem',
+    fontSize: '1.15rem',
     fontWeight: '800',
     color: 'var(--accent-teal)',
     backgroundColor: 'rgba(255, 255, 255, 0.9)',
     backdropFilter: 'blur(12px)',
-    padding: '0.75rem 2rem',
+    padding: '0.6rem 1.75rem',
     borderRadius: '99px',
-    marginBottom: '3rem',
+    marginBottom: '2rem',
     display: 'inline-block',
     border: '1px solid rgba(255, 255, 255, 0.5)',
     boxShadow: '0 10px 25px -5px rgba(0,0,0,0.1)',
@@ -208,16 +232,16 @@ const styles = {
   },
   destinationGrid: {
     display: 'flex',
-    flexWrap: 'nowrap',
-    gap: '2.5rem',
+    flexWrap: 'nowrap', // Force one row to prevent wrapping and clipping on short screens
+    gap: '2rem',
     justifyContent: 'center',
     width: '100%',
+    maxWidth: '1750px',
   },
   destCard: {
-    flex: '1 1 0',
-    minWidth: '280px',
+    flex: '1 1 280px', 
     maxWidth: '400px',
-    height: '420px',
+    height: '420px', // Increased height as requested
     borderRadius: '32px',
     padding: '1.5rem',
     display: 'flex',
@@ -250,14 +274,14 @@ const styles = {
     fontSize: '1.75rem',
     fontWeight: '800',
     color: 'var(--text-primary)',
-    lineHeight: '1.2',
+    lineHeight: '1.1',
   },
   destTagline: {
     fontSize: '1rem',
     fontWeight: '600',
     color: 'var(--text-tertiary)',
-    lineHeight: '1.2',
-    marginTop: '0.25rem',
+    lineHeight: '1.1',
+    marginTop: '0.3rem',
   }
 };
 

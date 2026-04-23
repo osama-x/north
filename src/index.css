@@ -406,3 +406,75 @@ button {
   pointer-events: none;
   opacity: 0.9;
 }
+
+/* --- Hero Section Adaptive Styling --- */
+.hero-section {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(5, 150, 105, 0.2) transparent;
+}
+
+.hero-section::-webkit-scrollbar {
+  width: 6px;
+}
+
+.hero-section::-webkit-scrollbar-thumb {
+  background-color: rgba(5, 150, 105, 0.2);
+  border-radius: 10px;
+}
+
+/* Tablet / Small Laptop */
+@media (max-width: 1200px) {
+  .hero-section {
+    zoom: 0.75 !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  
+  .mobile-hamburger {
+    display: flex !important;
+  }
+
+  /* Reduce header padding on mobile */
+  .glass-header {
+    padding: 1rem 1.5rem !important;
+  }
+}
+
+/* Mobile Screens / Small Height Viewports */
+@media (max-width: 768px) {
+  .hero-section {
+    zoom: 1 !important; /* Reset zoom on mobile for native feel */
+    overflow-y: auto !important; /* Allow scroll on mobile */
+    padding-top: 2rem !important;
+  }
+  
+  .hero-section > div {
+    justify-content: flex-start !important;
+    padding-top: 2rem !important;
+    height: auto !important;
+    min-height: 100% !important;
+  }
+  
+  .destination-grid {
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+  }
+}
+
+
+/* Fix for top clipping on any small height laptop/desktop */
+@media (max-height: 700px) and (min-width: 769px) {
+  .hero-section {
+    zoom: 0.7 !important;
+  }
+}
+
+@media (max-height: 600px) and (min-width: 769px) {
+  .hero-section {
+    zoom: 0.65 !important;
+  }
+}
