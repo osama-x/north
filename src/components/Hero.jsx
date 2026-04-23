@@ -6,33 +6,60 @@ import naranImg from '../assets/naran.png';
 import nathiaImg from '../assets/nathia_gali.png';
 import kalamImg from '../assets/kalam.png';
 
+const taglines = [
+  { prefix: "", accent: "Effortlessly", suffix: " plan your perfect northern getaway" },
+  { prefix: "Discover the ", accent: "Majestic", suffix: " beauty of the high peaks" },
+  { prefix: "Experience ", accent: "Unparalleled", suffix: " serenity in every valley" },
+  { prefix: "Create ", accent: "Everlasting", suffix: " memories in the North" }
+];
+
+const popularDestinations = [
+  { id: 1, name: 'Hunza', tagline: 'The Valley of Immortals', image: hunzaImg },
+  { id: 2, name: 'Skardu', tagline: 'Land of Giants', image: skarduImg },
+  { id: 3, name: 'Naran', tagline: 'Alpine Serenity', image: naranImg },
+  { id: 4, name: 'Nathia Gali', tagline: 'Misty Mountains', image: nathiaImg },
+  { id: 5, name: 'Kalam', tagline: 'Pine Whispers', image: kalamImg },
+  { id: 6, name: 'Neelum', tagline: 'Paradise on Earth', image: null },
+];
+
+const newsItems = [
+  "Naran opens for tourism on May 15th",
+  "Storms and rainfall prediction over the next 4 days",
+  "Snowfall expected in Galiyat region this weekend",
+  "Road updates: Babusar Top construction in progress"
+];
+
 const Hero = () => {
   const navigate = useNavigate();
 
-  const taglines = [
-    { prefix: "", accent: "Effortlessly", suffix: " plan your perfect northern getaway" },
-    { prefix: "Discover the ", accent: "Majestic", suffix: " beauty of the high peaks" },
-    { prefix: "Experience ", accent: "Unparalleled", suffix: " serenity in every valley" },
-    { prefix: "Create ", accent: "Everlasting", suffix: " memories in the North" }
-  ];
 
   const [index, setIndex] = useState(0);
   const [fadeStatus, setFadeStatus] = useState('fade-in');
+  const [newsIndex, setNewsIndex] = useState(0);
+  const [newsFade, setNewsFade] = useState(true);
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    const taglineTimer = setInterval(() => {
       setFadeStatus('fade-out');
-
-      // Wait for fade out to complete before changing text
       setTimeout(() => {
         setIndex((prevIndex) => (prevIndex + 1) % taglines.length);
         setFadeStatus('fade-in');
-      }, 500); // Duration of fade-out
+      }, 500);
+    }, 4000);
 
-    }, 4000); // Total time each headline stays visible
+    const newsTimer = setInterval(() => {
+      setNewsFade(false);
+      setTimeout(() => {
+        setNewsIndex((prevIndex) => (prevIndex + 1) % newsItems.length);
+        setNewsFade(true);
+      }, 500);
+    }, 5000);
 
-    return () => clearInterval(timer);
-  }, [taglines.length]);
+    return () => {
+      clearInterval(taglineTimer);
+      clearInterval(newsTimer);
+    };
+  }, [taglines.length, newsItems.length]);
 
   const renderTagline = () => {
     const tagline = taglines[index];
@@ -50,14 +77,6 @@ const Hero = () => {
     );
   };
 
-  const popularDestinations = [
-    { id: 1, name: 'Hunza', tagline: 'The Valley of Immortals', image: hunzaImg },
-    { id: 2, name: 'Skardu', tagline: 'Land of Giants', image: skarduImg },
-    { id: 3, name: 'Naran', tagline: 'Alpine Serenity', image: naranImg },
-    { id: 4, name: 'Nathia Gali', tagline: 'Misty Mountains', image: nathiaImg },
-    { id: 5, name: 'Kalam', tagline: 'Pine Whispers', image: kalamImg },
-    { id: 6, name: 'Neelum', tagline: 'Paradise on Earth', image: null },
-  ];
 
   return (
     <section style={styles.hero} className="hero-section">
@@ -82,6 +101,22 @@ const Hero = () => {
             >
               Find your next stay
             </button>
+          </div>
+        </div>
+
+        {/* News & Updates Section */}
+        <div style={styles.newsSection} className="animate-slide-up delay-350">
+          <div className="glass-card" style={styles.newsPill}>
+            <span style={styles.newsLabel}>Updates</span>
+            <div style={styles.newsLine}></div>
+            <span style={{
+              ...styles.newsText,
+              opacity: newsFade ? 1 : 0,
+              transform: newsFade ? 'translateX(0)' : 'translateX(10px)',
+              transition: 'all 0.5s ease'
+            }}>
+              {newsItems[newsIndex]}
+            </span>
           </div>
         </div>
 
@@ -241,7 +276,7 @@ const styles = {
   destCard: {
     flex: '1 1 280px', 
     maxWidth: '400px',
-    height: '420px', // Increased height as requested
+    height: '380px', // Slightly reduced to accommodate news pill
     borderRadius: '32px',
     padding: '1.5rem',
     display: 'flex',
@@ -282,6 +317,43 @@ const styles = {
     color: 'var(--text-tertiary)',
     lineHeight: '1.1',
     marginTop: '0.3rem',
+  },
+  newsSection: {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    margin: '1rem 0',
+  },
+  newsPill: {
+    display: 'flex',
+    alignItems: 'center',
+    padding: '0.8rem 2.5rem',
+    borderRadius: '99px',
+    gap: '1.5rem',
+    maxWidth: '900px',
+    backgroundColor: 'rgba(255, 255, 255, 0.4)',
+    border: '1px solid rgba(255, 255, 255, 0.6)',
+  },
+  newsLabel: {
+    fontSize: '0.85rem',
+    fontWeight: '800',
+    color: 'var(--accent-teal)',
+    textTransform: 'uppercase',
+    letterSpacing: '0.1em',
+    whiteSpace: 'nowrap',
+  },
+  newsLine: {
+    width: '1px',
+    height: '20px',
+    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+  },
+  newsText: {
+    fontSize: '1rem',
+    fontWeight: '600',
+    color: 'var(--text-primary)',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
   }
 };
 
