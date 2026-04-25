@@ -15,6 +15,34 @@
   --bg-light-gray: #f8fafc;
   --panel-shadow: 0 20px 50px -12px rgba(15, 23, 42, 0.1);
   --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  
+  /* Additional variables for theming */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(15, 23, 42, 0.05);
+  --overlay-bg: rgba(255, 255, 255, 0.98);
+  --input-bg: rgba(255, 255, 255, 0.8);
+  --header-bg: rgba(255, 255, 255, 0.85);
+}
+
+.dark {
+  --bg-color: #0b1120;
+  --bg-gradient: radial-gradient(circle at top left, #0f172a 0%, #020617 50%, #0b1120 100%);
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #94a3b8;
+  --accent-teal: #10b981;
+  --accent-teal-hover: #34d399;
+  --accent-dark: #f8fafc;
+  --accent-dark-hover: #e2e8f0;
+  --border-light: rgba(255, 255, 255, 0.1);
+  --bg-light-gray: #0f172a;
+  --panel-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.6);
+  
+  --glass-bg: rgba(30, 41, 59, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --overlay-bg: rgba(15, 23, 42, 0.98);
+  --input-bg: rgba(15, 23, 42, 0.6);
+  --header-bg: rgba(15, 23, 42, 0.85);
 }
 
 * {
@@ -36,6 +64,13 @@ body {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.dark body {
+  background: 
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.4) 0%, rgba(2, 6, 23, 0) 50%),
+    var(--bg-gradient) url('./assets/scene_dark.png') no-repeat center bottom fixed;
+  background-size: cover;
 }
 
 #root {
@@ -97,16 +132,23 @@ button {
     0 0 0 1px var(--accent-teal) !important;
 }
 
-/* Glassmorphism Utilities */
 .glass-card {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.80) 100%) !important;
   backdrop-filter: blur(24px) !important;
   -webkit-backdrop-filter: blur(24px) !important;
   border: 1px solid rgba(15, 23, 42, 0.12) !important;
   box-shadow: 
-    0 25px 50px -12px rgba(15, 23, 42, 0.15),
+    0 25px 50px -12px var(--panel-shadow),
     inset 0 0 0 1px rgba(255, 255, 255, 0.8) !important;
   position: relative;
+}
+
+.dark .glass-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.7) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 
+    0 25px 50px -12px var(--panel-shadow),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
 }
 
 .glass-card::before {
@@ -123,9 +165,10 @@ button {
 
 
 .glass-input {
-  background: rgba(255, 255, 255, 0.8) !important;
+  background: var(--input-bg) !important;
+  color: var(--text-primary) !important;
   backdrop-filter: blur(10px) !important;
-  border: 1px solid rgba(15, 23, 42, 0.15) !important;
+  border: 1px solid var(--border-light) !important;
   box-shadow: inset 0 2px 4px rgba(15, 23, 42, 0.02) !important;
   transition: all 0.2s ease;
 }
@@ -136,10 +179,10 @@ button {
 }
 
 .glass-header {
-  background: rgba(255, 255, 255, 0.85) !important;
+  background: var(--header-bg) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
-  border-bottom: 1px solid rgba(15, 23, 42, 0.1) !important;
+  border-bottom: 1px solid var(--border-light) !important;
   box-shadow: 0 4px 20px -5px rgba(15, 23, 42, 0.05) !important;
 }
 

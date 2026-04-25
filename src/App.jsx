@@ -6,9 +6,22 @@ import TripPlanner from './components/TripPlanner';
 import Itinerary from './components/Itinerary';
 import DestinationDetail from './components/DestinationDetail';
 import UpdatesPage from './components/UpdatesPage';
-import scene from './assets/scene.png';
+import sceneLight from './assets/scene.png';
+import sceneDark from './assets/scene_dark.png';
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = React.useState(false);
+
+  React.useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode]);
+
+  const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
+
   return (
     <BrowserRouter>
       <div className="cloud-container">
@@ -17,7 +30,7 @@ function App() {
         <div className="cloud cloud-3"></div>
         <div className="cloud cloud-4"></div>
       </div>
-      <Header />
+      <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
       <main style={styles.mainContent}>
         <Routes>
           <Route path="/" element={<Hero />} />
@@ -27,7 +40,7 @@ function App() {
           <Route path="/updates" element={<UpdatesPage />} />
         </Routes>
       </main>
-      <img src={scene} alt="Mountain Panorama" className="global-scene animate-scale-up delay-400" />
+      <img src={isDarkMode ? sceneDark : sceneLight} alt="Mountain Panorama" className="global-scene animate-scale-up delay-400" />
     </BrowserRouter>
   );
 }

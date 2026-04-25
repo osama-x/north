@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 
-const Header = () => {
+const Header = ({ isDarkMode, toggleDarkMode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -35,11 +35,31 @@ const Header = () => {
           <Link to="/planner" onClick={() => setIsMenuOpen(false)} style={styles.mobileNavLink}>AI Trip Planner</Link>
           <Link to="/updates" onClick={() => setIsMenuOpen(false)} style={styles.mobileNavLink}>Updates & Alerts</Link>
           <Link to="/" onClick={() => setIsMenuOpen(false)} style={styles.mobileNavLink}>Stays</Link>
+          {/* Dark Mode toggle disabled for now */}
+          {/* 
+          <button 
+            onClick={() => { toggleDarkMode(); setIsMenuOpen(false); }} 
+            style={styles.mobileThemeToggle}
+          >
+            {isDarkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
+          </button>
+          */}
           <button className="btn-secondary-hover" style={styles.mobileLoginButton}>Login</button>
         </nav>
       </div>
 
       <div style={styles.actions} className="animate-slide-down delay-300">
+        {/* Dark Mode toggle disabled for now */}
+        {/*
+        <button 
+          onClick={toggleDarkMode} 
+          className="desktop-nav hover-scale"
+          style={styles.themeToggle}
+          aria-label="Toggle Dark Mode"
+        >
+          {isDarkMode ? '☀️' : '🌙'}
+        </button>
+        */}
         <button className="desktop-nav btn-secondary-hover" style={styles.loginButton}>Login</button>
         
         {/* Hamburger Icon */}
@@ -94,11 +114,11 @@ const styles = {
     fontSize: '0.9rem',
     fontWeight: '700',
     color: 'var(--text-primary)',
-    backgroundColor: 'rgba(255, 255, 255, 0.7)',
+    backgroundColor: 'var(--glass-bg)',
     backdropFilter: 'blur(10px)',
     padding: '0.6rem 1.5rem',
     borderRadius: '99px',
-    border: '1px solid rgba(15, 23, 42, 0.05)',
+    border: '1px solid var(--glass-border)',
     transition: 'all 0.3s ease',
     whiteSpace: 'nowrap',
   },
@@ -118,6 +138,21 @@ const styles = {
     borderRadius: '99px',
     border: '1px solid var(--border-light)',
     transition: 'all 0.2s',
+  },
+  themeToggle: {
+    background: 'var(--glass-bg)',
+    border: '1px solid var(--glass-border)',
+    borderRadius: '50%',
+    width: '40px',
+    height: '40px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '1.2rem',
+    marginRight: '1rem',
+    cursor: 'pointer',
+    color: 'var(--text-primary)',
+    transition: 'all 0.3s ease',
   },
   hamburger: {
     display: 'none', // Hidden by default, shown via CSS class on mobile
@@ -141,7 +176,7 @@ const styles = {
     left: 0,
     width: '100vw',
     height: '100vh',
-    backgroundColor: 'rgba(255, 255, 255, 0.98)', // More solid to prevent background mix-up
+    backgroundColor: 'var(--overlay-bg)',
     backdropFilter: 'blur(40px)', // High blur for premium look
     display: 'flex',
     flexDirection: 'column',
@@ -175,6 +210,15 @@ const styles = {
     color: 'var(--text-primary)',
     textDecoration: 'none',
     letterSpacing: '-0.02em',
+    transition: 'color 0.2s',
+  },
+  mobileThemeToggle: {
+    fontSize: '1.5rem',
+    fontWeight: '700',
+    color: 'var(--text-primary)',
+    background: 'none',
+    border: 'none',
+    cursor: 'pointer',
     transition: 'color 0.2s',
   },
   mobileLoginButton: {
