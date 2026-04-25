@@ -14,7 +14,7 @@ const Header = () => {
       {/* Desktop Navigation */}
       <nav style={styles.nav} className="desktop-nav animate-slide-down delay-200">
         <Link to="/planner" className="nav-link-hover" style={styles.navLink}>AI Trip Planner</Link>
-        <Link to="/" className="nav-link-hover" style={styles.navLink}>Updates & Alerts</Link>
+        <Link to="/updates" className="nav-link-hover" style={styles.navLink}>Updates & Alerts</Link>
         <Link to="/" className="nav-link-hover" style={styles.navLink}>Stays</Link>
       </nav>
 
@@ -33,7 +33,7 @@ const Header = () => {
         </button>
         <nav style={styles.mobileNav}>
           <Link to="/planner" onClick={() => setIsMenuOpen(false)} style={styles.mobileNavLink}>AI Trip Planner</Link>
-          <Link to="/" onClick={() => setIsMenuOpen(false)} style={styles.mobileNavLink}>Updates & Alerts</Link>
+          <Link to="/updates" onClick={() => setIsMenuOpen(false)} style={styles.mobileNavLink}>Updates & Alerts</Link>
           <Link to="/" onClick={() => setIsMenuOpen(false)} style={styles.mobileNavLink}>Stays</Link>
           <button className="btn-secondary-hover" style={styles.mobileLoginButton}>Login</button>
         </nav>
@@ -67,7 +67,11 @@ const styles = {
     borderBottom: '1px solid var(--border-light)',
     height: '80px',
     flexShrink: 0,
-    position: 'relative', // Support absolute centering of nav
+    position: 'fixed', // Keep header fixed while scrolling
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 1000,
   },
   logoLink: {
     textDecoration: 'none',
@@ -81,17 +85,22 @@ const styles = {
   },
   nav: {
     display: 'flex',
-    gap: '2.5rem',
+    gap: '1rem',
     alignItems: 'center',
-    position: 'absolute',
-    left: '50%',
-    transform: 'translateX(-50%)',
+    marginLeft: 'auto',
+    marginRight: '2.5rem',
   },
   navLink: {
-    fontSize: '1rem',
-    fontWeight: '600',
+    fontSize: '0.9rem',
+    fontWeight: '700',
     color: 'var(--text-primary)',
-    transition: 'color 0.2s',
+    backgroundColor: 'rgba(255, 255, 255, 0.7)',
+    backdropFilter: 'blur(10px)',
+    padding: '0.6rem 1.5rem',
+    borderRadius: '99px',
+    border: '1px solid rgba(15, 23, 42, 0.05)',
+    transition: 'all 0.3s ease',
+    whiteSpace: 'nowrap',
   },
   navLinkHover: {
     color: 'var(--accent-teal)',

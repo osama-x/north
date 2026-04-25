@@ -5,6 +5,8 @@ import skarduImg from '../assets/skardu.png';
 import naranImg from '../assets/naran.png';
 import nathiaImg from '../assets/nathia_gali.png';
 import kalamImg from '../assets/kalam.png';
+import neelumImg from '../assets/neelum.png';
+import UpdatesAndAlerts from './UpdatesAndAlerts';
 
 const taglines = [
   { prefix: "", accent: "Effortlessly", suffix: " plan your perfect northern getaway" },
@@ -19,7 +21,7 @@ const popularDestinations = [
   { id: 3, name: 'Naran', tagline: 'Alpine Serenity', image: naranImg },
   { id: 4, name: 'Nathia Gali', tagline: 'Misty Mountains', image: nathiaImg },
   { id: 5, name: 'Kalam', tagline: 'Pine Whispers', image: kalamImg },
-  { id: 6, name: 'Neelum', tagline: 'Paradise on Earth', image: null },
+  { id: 6, name: 'Neelum', tagline: 'Paradise on Earth', image: neelumImg },
 ];
 
 const newsItems = [
@@ -105,27 +107,23 @@ const Hero = () => {
         </div>
 
         {/* News & Updates Section */}
-        <div style={styles.newsSection} className="animate-slide-up delay-350">
-          <div className="glass-card" style={styles.newsPill}>
-            <span style={styles.newsLabel}>Updates</span>
-            <div style={styles.newsLine}></div>
-            <span style={{
-              ...styles.newsText,
-              opacity: newsFade ? 1 : 0,
-              transform: newsFade ? 'translateX(0)' : 'translateX(10px)',
-              transition: 'all 0.5s ease'
-            }}>
-              {newsItems[newsIndex]}
-            </span>
-          </div>
+        <div className="animate-slide-up delay-350" style={{ width: '100%' }}>
+          <UpdatesAndAlerts />
         </div>
 
         {/* Popular Destinations Section */}
         <div style={styles.destinationsSection} className="animate-slide-up delay-400">
-          <h2 style={styles.sectionTitleCenter}>Popular Destinations</h2>
+          <div style={{ paddingLeft: '1rem' }}>
+            <h2 style={styles.sectionTitleCenter}>Popular Destinations</h2>
+          </div>
           <div style={styles.destinationGrid} className="destination-grid">
             {popularDestinations.map(dest => (
-              <div key={dest.id} className="glass-card card-hover" style={styles.destCard}>
+              <div
+                key={dest.id}
+                className="glass-card card-hover"
+                style={styles.destCard}
+                onClick={() => navigate('/destination/' + dest.name.toLowerCase().replace(/\s+/g, '-'))}
+              >
                 <div style={styles.imageContainer}>
                   {dest.image ? (
                     <img src={dest.image} alt={dest.name} style={styles.destImage} />
@@ -173,17 +171,10 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     flex: 1,
-    overflow: 'hidden', // No scroll in default view
     position: 'relative',
     backgroundColor: 'transparent',
     width: '100%',
-    // Standardizing the 80% zoom look the user preferred
-    zoom: '0.8',
-    // Fallback for browsers that don't support zoom
-    WebkitZoom: '0.8',
-    MozTransform: 'scale(0.8)',
-    MozTransformOrigin: 'top center',
-    padding: '1rem 0',
+    padding: '2rem 0 5rem 0', // Added bottom padding for scroll
   },
   content: {
     display: 'flex',
@@ -192,10 +183,8 @@ const styles = {
     zIndex: 10,
     width: '100%',
     maxWidth: '1800px',
-    padding: '0 2rem 2rem 2rem', // Removed top padding
+    padding: '0 2rem 2rem 2rem',
     position: 'relative',
-    height: '100%',
-    maxHeight: '100%',
     justifyContent: 'space-between',
     width: '100%',
   },
@@ -244,39 +233,39 @@ const styles = {
     cursor: 'pointer',
   },
   destinationsSection: {
-    width: '100%',
-    display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
-    marginTop: '1rem',
+    alignItems: 'flex-start',
+    marginTop: '0rem', // Reduce margin above to show data below
+    width: '100%',
+    maxWidth: '1750px',
   },
   sectionTitleCenter: {
-    fontSize: '1.15rem',
+    fontSize: '1.5rem', // Bigger size
     fontWeight: '800',
     color: 'var(--accent-teal)',
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    backgroundColor: '#ffffff', // Pure white style pill
     backdropFilter: 'blur(12px)',
-    padding: '0.6rem 1.75rem',
+    padding: '0.8rem 2rem', // Increased padding
     borderRadius: '99px',
     marginBottom: '2rem',
     display: 'inline-block',
-    border: '1px solid rgba(255, 255, 255, 0.5)',
+    border: '1px solid rgba(5, 150, 105, 0.2)', // Subtle green border
     boxShadow: '0 10px 25px -5px rgba(0,0,0,0.1)',
     letterSpacing: '0.05em',
     textTransform: 'uppercase',
   },
   destinationGrid: {
     display: 'flex',
-    flexWrap: 'nowrap', // Force one row to prevent wrapping and clipping on short screens
+    flexWrap: 'wrap', // Allow wrapping for scrollable page
     gap: '2rem',
     justifyContent: 'center',
     width: '100%',
     maxWidth: '1750px',
   },
   destCard: {
-    flex: '1 1 280px', 
-    maxWidth: '400px',
-    height: '380px', // Slightly reduced to accommodate news pill
+    flex: '1 1 350px',
+    maxWidth: '500px',
+    height: '460px',
     borderRadius: '32px',
     padding: '1.5rem',
     display: 'flex',

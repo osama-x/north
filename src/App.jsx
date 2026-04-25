@@ -4,6 +4,8 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import TripPlanner from './components/TripPlanner';
 import Itinerary from './components/Itinerary';
+import DestinationDetail from './components/DestinationDetail';
+import UpdatesPage from './components/UpdatesPage';
 import scene from './assets/scene.png';
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
           <Route path="/" element={<Hero />} />
           <Route path="/planner" element={<TripPlanner />} />
           <Route path="/itinerary" element={<Itinerary />} />
+          <Route path="/destination/:id" element={<DestinationDetail />} />
+          <Route path="/updates" element={<UpdatesPage />} />
         </Routes>
       </main>
       <img src={scene} alt="Mountain Panorama" className="global-scene animate-scale-up delay-400" />
@@ -33,9 +37,8 @@ const styles = {
     flex: 1,
     display: 'flex',
     flexDirection: 'column',
-    // Ensures the main content doesn't force a global scroll, 
-    // allows internal components to handle their own sizing
-    overflow: 'hidden',
+    // Content is now naturally scrollable
+    paddingTop: '80px',
     backgroundColor: 'transparent',
   }
 };
