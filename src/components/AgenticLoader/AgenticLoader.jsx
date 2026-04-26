@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { styles } from './AgenticLoader.styles';
 
 const AgenticLoader = ({ source, destination, onComplete }) => {
   const steps = [
@@ -37,11 +38,9 @@ const AgenticLoader = ({ source, destination, onComplete }) => {
             <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1-8.313-12.454z" />
             <path d="M12 3a7.5 7.5 0 0 0 7.92 12.446a9 9 0 0 0-8.313-12.454z" opacity="0.3" />
             <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" />
-            {/* Custom Sparkle Icon based on the image */}
             <path d="M12 7v10M7 12h10" strokeWidth="2.5" />
             <circle cx="12" cy="12" r="3" fill="var(--accent-teal)" />
           </svg>
-          {/* Simplified Sparkle SVG to match the image precisely */}
           <div style={styles.sparkleOuter}>
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 3L14.5 9.5L21 12L14.5 14.5L12 21L9.5 14.5L3 12L9.5 9.5L12 3Z" fill="#10B981" fillOpacity="0.2" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -88,95 +87,6 @@ const AgenticLoader = ({ source, destination, onComplete }) => {
       </div>
     </div>
   );
-};
-
-const styles = {
-  overlay: {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'transparent',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    zIndex: 1000,
-    animation: 'fadeIn 0.5s ease-out',
-  },
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    textAlign: 'center',
-    maxWidth: '550px',
-    width: '90%',
-    padding: '3rem 2rem',
-    borderRadius: '24px',
-  },
-  iconWrapper: {
-    position: 'relative',
-    width: '80px',
-    height: '80px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: '2rem',
-    backgroundColor: 'rgba(16, 185, 129, 0.08)',
-    borderRadius: '50%',
-  },
-  sparkleOuter: {
-    animation: 'pulse 2s infinite ease-in-out',
-  },
-  title: {
-    fontSize: '2rem',
-    fontWeight: '800',
-    color: 'var(--text-primary)',
-    marginBottom: '0.5rem',
-    letterSpacing: '-0.02em',
-  },
-  subtitle: {
-    fontSize: '1rem',
-    color: 'var(--text-secondary)',
-    marginBottom: '3rem',
-  },
-  stepsList: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '1.25rem',
-    width: '100%',
-    alignItems: 'flex-start',
-    paddingLeft: '2rem',
-  },
-  stepItem: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '1rem',
-    transition: 'all 0.3s ease',
-  },
-  statusIcon: {
-    width: '24px',
-    height: '24px',
-    borderRadius: '50%',
-    border: '2px solid',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexShrink: 0,
-    transition: 'all 0.3s ease',
-  },
-  loadingRing: {
-    width: '12px',
-    height: '12px',
-    borderRadius: '50%',
-    border: '2px solid var(--accent-teal)',
-    borderTopColor: 'transparent',
-    animation: 'spin 1s linear infinite',
-  },
-  stepText: {
-    fontSize: '1rem',
-    textAlign: 'left',
-  }
 };
 
 export default AgenticLoader;

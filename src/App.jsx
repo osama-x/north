@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import TripPlanner from './components/TripPlanner';
-import Itinerary from './components/Itinerary';
-import DestinationDetail from './components/DestinationDetail';
-import UpdatesPage from './components/UpdatesPage';
+import Header from './components/Header/Header';
+import Hero from './components/Hero/Hero';
+import TripPlanner from './components/TripPlanner/TripPlanner';
+import Itinerary from './components/Itinerary/Itinerary';
+import DestinationDetail from './components/DestinationDetail/DestinationDetail';
+import UpdatesPage from './components/UpdatesPage/UpdatesPage';
 import sceneLight from './assets/scene.png';
 import sceneDark from './assets/scene_dark.png';
 

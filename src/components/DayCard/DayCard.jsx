@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { styles } from './DayCard.styles';
 
 const DayCard = ({ dayData, dateStr, dayOfWeek, onStaySelect, selectedStayType, className }) => {
   const [isOpen, setIsOpen] = useState(true);
 
-  // Format Date String
   const headerDateSubtext = dateStr && dayOfWeek ? `${dateStr}, ${dayOfWeek}` : '';
 
   return (
@@ -36,7 +36,7 @@ const DayCard = ({ dayData, dateStr, dayOfWeek, onStaySelect, selectedStayType, 
         <div style={styles.content}>
           {/* Timeline */}
           <div style={styles.timeline}>
-            {dayData.timeline.map((item, index) => (
+            {dayData.timeline && dayData.timeline.map((item, index) => (
               <div key={index} style={styles.timelineItem}>
                 <div style={styles.timelineDot}></div>
                 <div style={styles.timelineContent}>
@@ -108,171 +108,6 @@ const DayCard = ({ dayData, dateStr, dayOfWeek, onStaySelect, selectedStayType, 
       )}
     </div>
   );
-};
-
-const styles = {
-  cardContainer: {
-    borderRadius: '16px',
-    padding: '2rem',
-    marginBottom: '1.5rem',
-  },
-  header: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    cursor: 'pointer',
-  },
-  headerLeft: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '1rem',
-  },
-  dayNumberCircle: {
-    width: '40px',
-    height: '40px',
-    borderRadius: '50%',
-    backgroundColor: 'var(--accent-teal)',
-    color: '#fff',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: '1.1rem',
-    fontWeight: '700',
-  },
-  dayTitle: {
-    fontSize: '1.5rem',
-    fontWeight: '800',
-    color: 'var(--text-primary)',
-    margin: 0,
-    letterSpacing: '-0.02em',
-  },
-  headerRight: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '1rem',
-  },
-  dateSubtextRight: {
-    fontSize: '0.9rem',
-    color: 'var(--text-secondary)',
-    fontWeight: '600',
-  },
-  chevron: {
-    color: 'var(--text-secondary)',
-  },
-  content: {
-    marginTop: '2rem',
-    paddingLeft: '1rem', // Align with timeline items
-  },
-  timeline: {
-    position: 'relative',
-    borderLeft: '2px solid var(--border-light)',
-    paddingLeft: '1.5rem',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '1.5rem',
-    marginBottom: '2rem',
-  },
-  timelineItem: {
-    position: 'relative',
-  },
-  timelineDot: {
-    position: 'absolute',
-    left: '-1.5rem',
-    top: '0.25rem',
-    transform: 'translateX(-50%)',
-    width: '10px',
-    height: '10px',
-    borderRadius: '50%',
-    backgroundColor: 'var(--accent-teal)',
-  },
-  timelineContent: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '0.25rem',
-  },
-  timeLineHeader: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-  timeText: {
-    fontSize: '0.85rem',
-    fontWeight: '700',
-    color: 'var(--accent-teal)',
-  },
-  activityTitle: {
-    fontSize: '1rem',
-    fontWeight: '500',
-    color: 'var(--text-primary)',
-  },
-  section: {
-    marginBottom: '2rem',
-    paddingLeft: '1.5rem', // Match timeline indent visually
-  },
-  sectionTitle: {
-    fontSize: '0.75rem',
-    fontWeight: '800',
-    color: 'var(--text-tertiary)',
-    textTransform: 'uppercase',
-    letterSpacing: '0.1em',
-    marginBottom: '1rem',
-  },
-  tagsContainer: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    gap: '0.75rem',
-  },
-  tag: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '0.5rem',
-    padding: '0.5rem 1rem',
-    backgroundColor: 'var(--bg-light-gray)',
-    borderRadius: '99px',
-    fontSize: '0.85rem',
-    fontWeight: '500',
-    color: 'var(--text-secondary)',
-  },
-  stayHeader: {
-    display: 'flex',
-    alignItems: 'center',
-    marginBottom: '1rem',
-  },
-  stayGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-    gap: '1rem',
-  },
-  stayCard: {
-    border: '2px solid',
-    borderRadius: '12px',
-    padding: '1.25rem',
-    cursor: 'pointer',
-    transition: 'all 0.2s',
-  },
-  stayType: {
-    fontSize: '0.75rem',
-    fontWeight: '800',
-    color: 'var(--text-tertiary)',
-    textTransform: 'uppercase',
-    letterSpacing: '0.05em',
-    marginBottom: '0.5rem',
-  },
-  stayHotelName: {
-    fontSize: '1.1rem',
-    fontWeight: '700',
-    color: 'var(--text-primary)',
-    marginBottom: '0.75rem',
-  },
-  stayPrice: {
-    fontSize: '1.2rem',
-    fontWeight: '800',
-    color: 'var(--text-primary)',
-  },
-  priceNight: {
-    fontSize: '0.8rem',
-    fontWeight: '500',
-    color: 'var(--text-secondary)',
-  }
 };
 
 export default DayCard;

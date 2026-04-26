@@ -1,83 +1,4 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import logo from '../assets/logo.png';
-
-const Header = ({ isDarkMode, toggleDarkMode }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  return (
-    <header style={styles.header} className="glass-header">
-      <Link to="/" style={styles.logoLink} className="animate-slide-down delay-100">
-        <img src={logo} alt="Northway.pk" style={styles.logoImage} />
-      </Link>
-
-      {/* Desktop Navigation */}
-      <nav style={styles.nav} className="desktop-nav animate-slide-down delay-200">
-        <Link to="/planner" className="nav-link-hover" style={styles.navLink}>AI Trip Planner</Link>
-        <Link to="/updates" className="nav-link-hover" style={styles.navLink}>Updates & Alerts</Link>
-        <Link to="/" className="nav-link-hover" style={styles.navLink}>Stays</Link>
-      </nav>
-
-      {/* Mobile Navigation Overlay */}
-      <div style={{
-        ...styles.mobileOverlay,
-        transform: isMenuOpen ? 'translateX(0)' : 'translateX(100%)',
-        opacity: isMenuOpen ? 1 : 0,
-        pointerEvents: isMenuOpen ? 'all' : 'none'
-      }}>
-        <button 
-          onClick={() => setIsMenuOpen(false)} 
-          style={styles.closeButton}
-        >
-          ✕
-        </button>
-        <nav style={styles.mobileNav}>
-          <Link to="/planner" onClick={() => setIsMenuOpen(false)} style={styles.mobileNavLink}>AI Trip Planner</Link>
-          <Link to="/updates" onClick={() => setIsMenuOpen(false)} style={styles.mobileNavLink}>Updates & Alerts</Link>
-          <Link to="/" onClick={() => setIsMenuOpen(false)} style={styles.mobileNavLink}>Stays</Link>
-          {/* Dark Mode toggle disabled for now */}
-          {/* 
-          <button 
-            onClick={() => { toggleDarkMode(); setIsMenuOpen(false); }} 
-            style={styles.mobileThemeToggle}
-          >
-            {isDarkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
-          </button>
-          */}
-          <button className="btn-secondary-hover" style={styles.mobileLoginButton}>Login</button>
-        </nav>
-      </div>
-
-      <div style={styles.actions} className="animate-slide-down delay-300">
-        {/* Dark Mode toggle disabled for now */}
-        {/*
-        <button 
-          onClick={toggleDarkMode} 
-          className="desktop-nav hover-scale"
-          style={styles.themeToggle}
-          aria-label="Toggle Dark Mode"
-        >
-          {isDarkMode ? '☀️' : '🌙'}
-        </button>
-        */}
-        <button className="desktop-nav btn-secondary-hover" style={styles.loginButton}>Login</button>
-        
-        {/* Hamburger Icon */}
-        <button 
-          style={styles.hamburger} 
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="mobile-hamburger"
-        >
-          <div style={styles.burgerLine}></div>
-          <div style={styles.burgerLine}></div>
-          <div style={styles.burgerLine}></div>
-        </button>
-      </div>
-    </header>
-  );
-};
-
-const styles = {
+export const styles = {
   header: {
     display: 'flex',
     alignItems: 'center',
@@ -87,7 +8,7 @@ const styles = {
     borderBottom: '1px solid var(--border-light)',
     height: '80px',
     flexShrink: 0,
-    position: 'fixed', // Keep header fixed while scrolling
+    position: 'fixed',
     top: 0,
     left: 0,
     right: 0,
@@ -155,7 +76,7 @@ const styles = {
     transition: 'all 0.3s ease',
   },
   hamburger: {
-    display: 'none', // Hidden by default, shown via CSS class on mobile
+    display: 'none',
     flexDirection: 'column',
     gap: '5px',
     backgroundColor: 'transparent',
@@ -177,7 +98,7 @@ const styles = {
     width: '100vw',
     height: '100vh',
     backgroundColor: 'var(--overlay-bg)',
-    backdropFilter: 'blur(40px)', // High blur for premium look
+    backdropFilter: 'blur(40px)',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -233,6 +154,3 @@ const styles = {
     boxShadow: '0 10px 30px rgba(5, 150, 105, 0.3)',
   }
 };
-
-export default Header;
-
