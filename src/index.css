@@ -6,7 +6,7 @@
   --text-primary: #010411;
   --text-secondary: #0f172a;
   --text-tertiary: #334155;
-  --accent-teal: #059669;
+  --accent-teal: #2e8b58;
   /* Slightly more vibrant emerald */
   --accent-teal-hover: #047857;
   --accent-dark: #0f172a;
@@ -15,7 +15,7 @@
   --bg-light-gray: #f8fafc;
   --panel-shadow: 0 20px 50px -12px rgba(15, 23, 42, 0.1);
   --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  
+
   /* Additional variables for theming */
   --glass-bg: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(15, 23, 42, 0.05);
@@ -37,7 +37,7 @@
   --border-light: rgba(255, 255, 255, 0.1);
   --bg-light-gray: #0f172a;
   --panel-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.6);
-  
+
   --glass-bg: rgba(30, 41, 59, 0.7);
   --glass-border: rgba(255, 255, 255, 0.1);
   --overlay-bg: rgba(15, 23, 42, 0.98);
@@ -53,7 +53,7 @@
 
 body {
   font-family: var(--font-family);
-  background: 
+  background:
     linear-gradient(to bottom, rgba(14, 165, 233, 0.15) 0%, rgba(255, 255, 255, 0) 50%),
     var(--bg-gradient) url('./assets/scene.png') no-repeat center bottom fixed;
   background-size: cover;
@@ -67,7 +67,7 @@ body {
 }
 
 .dark body {
-  background: 
+  background:
     linear-gradient(to bottom, rgba(15, 23, 42, 0.4) 0%, rgba(2, 6, 23, 0) 50%),
     var(--bg-gradient) url('./assets/scene_dark.png') no-repeat center bottom fixed;
   background-size: cover;
@@ -126,8 +126,8 @@ button {
 
 .card-hover:hover {
   transform: translateY(-5px);
-  box-shadow: 
-    0 30px 60px -15px rgba(15, 23, 42, 0.2), 
+  box-shadow:
+    0 30px 60px -15px rgba(15, 23, 42, 0.2),
     inset 0 0 0 1px rgba(255, 255, 255, 0.8),
     0 0 0 1px var(--accent-teal) !important;
 }
@@ -137,7 +137,7 @@ button {
   backdrop-filter: blur(24px) !important;
   -webkit-backdrop-filter: blur(24px) !important;
   border: 1px solid rgba(15, 23, 42, 0.12) !important;
-  box-shadow: 
+  box-shadow:
     0 25px 50px -12px var(--panel-shadow),
     inset 0 0 0 1px rgba(255, 255, 255, 0.8) !important;
   position: relative;
@@ -146,7 +146,7 @@ button {
 .dark .glass-card {
   background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.7) 100%) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  box-shadow: 
+  box-shadow:
     0 25px 50px -12px var(--panel-shadow),
     inset 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
 }
@@ -154,7 +154,9 @@ button {
 .glass-card::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--accent-teal), transparent);
   opacity: 0.5;
@@ -478,7 +480,7 @@ button {
   .desktop-nav {
     display: none !important;
   }
-  
+
   .mobile-hamburger {
     display: flex !important;
   }
@@ -492,18 +494,20 @@ button {
 /* Mobile Screens / Small Height Viewports */
 @media (max-width: 768px) {
   .hero-section {
-    zoom: 1 !important; /* Reset zoom on mobile for native feel */
-    overflow-y: auto !important; /* Allow scroll on mobile */
+    zoom: 1 !important;
+    /* Reset zoom on mobile for native feel */
+    overflow-y: auto !important;
+    /* Allow scroll on mobile */
     padding-top: 2rem !important;
   }
-  
-  .hero-section > div {
+
+  .hero-section>div {
     justify-content: flex-start !important;
     padding-top: 2rem !important;
     height: auto !important;
     min-height: 100% !important;
   }
-  
+
   .destination-grid {
     flex-wrap: wrap !important;
     gap: 1rem !important;

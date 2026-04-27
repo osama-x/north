@@ -19,7 +19,7 @@ export const styles = {
     color: 'inherit',
   },
   logoImage: {
-    height: '45px',
+    height: '95px',
     width: 'auto',
     display: 'block',
     transition: 'opacity 0.2s',
